@@ -41,6 +41,7 @@ import traceback
 from multiprocessing import Lock
 
 import ansible.constants as C
+import ansible.dev_constants as D
 from ansible.errors import AnsibleError, AnsibleOptionsError, AnsibleParserError
 from ansible.utils.display import Display
 from ansible.module_utils._text import to_text
@@ -59,6 +60,9 @@ class LastResort(object):
 ########################################
 
 if __name__ == '__main__':
+
+    if D.enable_debug_stepping:
+        import pdb; pdb.set_trace()
 
     display = LastResort()
     cli = None

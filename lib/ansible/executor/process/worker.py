@@ -19,7 +19,12 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
-import multiprocessing
+import ansible.dev_constants as D
+if D.enable_debug_stepping:
+    import multiprocessing.dummy
+else:
+    import multiprocessing
+
 import os
 import sys
 import traceback
